@@ -1,5 +1,10 @@
-# CAT FIGHT ___________________________________________________________________
+# LSL Couple non sit animator
 
+**FIXME - NOT WORKS YET**
+
+Basic idea is make couple animation (like fight) for owner of hud and avatar
+what will be choosen (in area 20m max from owner/wearer). Similar to well known 
+Kiss&Hug hud.
 
 ### How it should works
 
@@ -31,16 +36,16 @@
     1.  animate winner (owner/target)
     - animate looser (owner/target)
     - wait 5 secs
-    - stop winner animation 
-    - stop loser  animation
+    - stop animation of winner
+    - stop animation of loser
 
-**Problems:**
+### Problems
 
   - start same animation for:
      - owner of object (wear this object)
      - avatar who not wear hud or sit with owner on same object
-  - start animation for both in same moment 
-  - stop animation after some defined time
+  - start animation for both (owner/target) in same moment 
+  - stop animations in same moment after some defined time
 
 **understand to:**
 
@@ -49,9 +54,10 @@
     -  ` llRequestPermissions( ownerKey , PERMISSION_TRIGGER_ANIMATION);`
   - in event:  `run_time_permissions`
     - must check - `if(perm & PERMISSION_TRIGGER_ANIMATION)`
-      - animation: llStartAnimation - must be 
+    - in event am able get information - UUID (key) of who granted/deny permission request
 
-  
+
+### Idea what not works  
 ``javascript
 
     touch_start(integer num_detected){
@@ -81,6 +87,7 @@
         llStopAnimation("rotate avatar");       // it will stop running animation of owner?
                                                 // or target?   or both? in same moment?
                                                 //or should use way:  requestion permissions again -> in that stop
+        llLoopSound("some_sound");
     }
         ```
 
