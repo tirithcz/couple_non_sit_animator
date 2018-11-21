@@ -57,7 +57,7 @@ Kiss&Hug hud.
     - function [LlGetPermissionsKey](http://wiki.secondlife.com/wiki/LlGetPermissionsKey) will tell me who permited animating and for who will start [llStartAnimation](http://wiki.secondlife.com/wiki/LlStartAnimation)("animation_name");
 
 
-### Idea what not works  
+#### Idea what not works  
 ```javascript
 
     touch_start(integer num_detected){
@@ -89,5 +89,30 @@ Kiss&Hug hud.
                                                 //or should use way:  requestion permissions again -> in that stop
         llLoopSound("some_sound");
     }
-        ```
+    
+```
+
+#### Or should do it like this?
+  - **default state**
+    - when know target key and position will do 
+      - walk to target
+      - jump to state *state animation_start*
+  - **state animations_start**
+    - state_entry()
+      - llRequestPermissions - for target
+    - run_time_permissions
+      - if is granted for target 
+        - start target animation? 
+        - llRequestPermissions - for owner
+      - if is granted for owner
+        - set timer event for time how long with animate both avatars
+    - timer()
+      state animation_stop - *jump to third state*
+  - **state animations_stop**
+    - state_entry()
+      - llRequestPermissions - for target  
+      - llRequestPermissions - for owner
+    - run_time_permissions()
+      - llStopAnimation
+    
 
