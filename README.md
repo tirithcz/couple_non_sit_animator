@@ -7,7 +7,6 @@ what will be choosen (in area 20m max from owner/wearer). Similar to well known
 Kiss&Hug hud.
 
 ### How it should works
-
   1. owner - person who wear hud/object
   1. target - avatar who wish animate with me
   1. **get target(avatar) name** 
