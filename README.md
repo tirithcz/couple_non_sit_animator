@@ -8,11 +8,11 @@ Kiss&Hug hud.
 
 ### How it should works
 
-  - **owner** - person who wear hud/object
-  - **target** - avatar who wish animate with me
+- **owner** - person who wear hud/object
+- **target** - avatar who wish animate with me
   
 1. **start**
-  - get target(avatar) name
+   get target(avatar) name
   - start listen for owner on channel 1 for 
   - event: _LISTEN_
     - received target name
@@ -20,15 +20,15 @@ Kiss&Hug hud.
     - get targetPos 
     - compute distance from target - llVecDist( llGetPos(), targetPos );
 2. walk toward target
-  1. **set target**  -  [llTarget](http://wiki.secondlife.com/wiki/LlTarget)(  targetPos, targetDistance );
-  - **turn to target** - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
-  - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
-  - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
+   1. **set target**  -  [llTarget](http://wiki.secondlife.com/wiki/LlTarget)(  targetPos, targetDistance );
+   - **turn to target** - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
+   - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
+   - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
 3. **do_fight**
-  1. start animation of owner
-  2. start animation of target
-  3. play sound 
-  4. dust particles 
+   1. start animation of owner
+   2. start animation of target
+   3. play sound 
+   4. dust particles 
 4. wait 10secs
 5. stop animations
   - animation of owner
