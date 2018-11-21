@@ -97,7 +97,7 @@ Kiss&Hug hud.
 - **default state**
   - when know target key and position will do 
   - walk to target
-  - jump to state *state animation_start*
+  - jump to state `state animation_start`
 - **state animations_start**
   - state_entry()
     - llRequestPermissions - for target
@@ -108,12 +108,12 @@ Kiss&Hug hud.
     - if is granted for owner
       - set timer event for time how long with animate both avatars
   - timer()
-    - state animation_stop - *jump to third state*
-  - **state animations_stop**
-    - state_entry()
-      - llRequestPermissions - for target  
-      - llRequestPermissions - for owner
-    - run_time_permissions()
-      - llStopAnimation
+    - jump to final state `state animation_stop`
+- **state animations_stop**
+  - state_entry()
+    - llRequestPermissions - for target  
+    - llRequestPermissions - for owner
+  - run_time_permissions()
+    - llStopAnimation
     
 
