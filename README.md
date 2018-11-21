@@ -8,9 +8,9 @@ Kiss&Hug hud.
 
 ### How it should works
 
-  1. winer - person who wear hud/object
-  - target - avatar who wish animate with me
-  - **get target(avatar) name** 
+  1. owner - person who wear hud/object
+  1. target - avatar who wish animate with me
+  1. **get target(avatar) name** 
    - start listen for owner on channel 1 for 
    - event: _LISTEN_
       1.  received target name
