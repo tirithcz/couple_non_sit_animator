@@ -12,33 +12,33 @@ Kiss&Hug hud.
 - **target** - avatar who wish animate with me
   
 1. **start**
-   get target(avatar) name
+  - get target(avatar) name
   - start listen for owner on channel 1 for 
   - event: _LISTEN_
     - received target name
     - get targetKey (UUID)
     - get targetPos 
     - compute distance from target - llVecDist( llGetPos(), targetPos );
-2. walk toward target
-   1. **set target**  -  [llTarget](http://wiki.secondlife.com/wiki/LlTarget)(  targetPos, targetDistance );
-   - **turn to target** - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
-   - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
-   - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
+2. **walk toward target**
+   1. set target  -  [llTarget](http://wiki.secondlife.com/wiki/LlTarget)(  targetPos, targetDistance );
+   2. turn to target - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
+   3. walk to target - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
+   4. when ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
 3. **do_fight**
    1. start animation of owner
    2. start animation of target
    3. play sound 
    4. dust particles 
-4. wait 10secs
-5. stop animations
-  - animation of owner
-  - animation of target
+4. **wait 10secs**
+5. **stop animations**
+   - animation of owner
+   - animation of target
 6. **randomly pick winner** = owner/target
-  1. animate winner (owner/target)
-  2. animate looser (owner/target)
-  3. wait 5 secs
-  4. stop animation of winner
-  5. stop animation of loser
+   1. animate winner (owner/target)
+   2. animate looser (owner/target)
+   3. wait 5 secs
+   4. stop animation of winner
+   5. stop animation of loser
 
 ### Problems
 
@@ -93,22 +93,22 @@ Kiss&Hug hud.
     
 ```
 
-#### Or should do it like this?
-  - **default state**
-    - when know target key and position will do 
-      - walk to target
-      - jump to state *state animation_start*
-  - **state animations_start**
-    - state_entry()
-      - llRequestPermissions - for target
-    - run_time_permissions
-      - if is granted for target 
-        - start target animation? 
-        - llRequestPermissions - for owner
-      - if is granted for owner
-        - set timer event for time how long with animate both avatars
-    - timer()
-      state animation_stop - *jump to third state*
+### Or should do it like this?
+- **default state**
+  - when know target key and position will do 
+  - walk to target
+  - jump to state *state animation_start*
+- **state animations_start**
+  - state_entry()
+    - llRequestPermissions - for target
+  - run_time_permissions()
+    - if is granted for target 
+    - start target animation? 
+      - llRequestPermissions - for owner
+    - if is granted for owner
+      - set timer event for time how long with animate both avatars
+  - timer()
+    - state animation_stop - *jump to third state*
   - **state animations_stop**
     - state_entry()
       - llRequestPermissions - for target  
