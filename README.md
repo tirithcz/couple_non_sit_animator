@@ -7,31 +7,33 @@ what will be choosen (in area 20m max from owner/wearer). Similar to well known
 Kiss&Hug hud.
 
 ### How it should works
-  1. owner - person who wear hud/object
-  1. target - avatar who wish animate with me
-  1. **get target(avatar) name** 
+
+  - owner - person who wear hud/object
+  - target - avatar who wish animate with me
+  
+  - **get target(avatar) name** 
    - start listen for owner on channel 1 for 
    - event: _LISTEN_
       1.  received target name
       - get targetKey (UUID)
       - get targetPos 
       - compute distance from target - llVelMag
-  1. **walk toward target**
+  2. **walk toward target**
     1.  **set target**  -  ` llTarget(  targetPos, targetDistance );`
     - turn to target - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
     - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
     - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
-  1. **do_fight**
+  3. **do_fight**
     1. start animation of owner
     - start animation of target
     - play sound 
     - dust particles 
-  1. wait 10secs
-  1. stop animations
+  4. wait 10secs
+  5. stop animations
     - animation of owner
     - animation of target
-  1. stop owner animation 
-  1. **randomly pick winner** = owner/target
+  5. stop owner animation 
+  6. **randomly pick winner** = owner/target
     1.  animate winner (owner/target)
     - animate looser (owner/target)
     - wait 5 secs
