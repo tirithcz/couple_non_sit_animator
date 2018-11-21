@@ -19,7 +19,7 @@ Kiss&Hug hud.
       - compute distance from target - llVelMag
   1. **walk toward target**
     1.  **set target**  -  ` llTarget(  targetPos, targetDistance );`
-    - turn to target - [llRotLookAt( targetPos, 1.0, 	0.4 );](http://wiki.secondlife.com/wiki/LlRotLookAt)
+    - turn to target - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
     - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
     - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
   1. **do_fight**
@@ -58,7 +58,7 @@ Kiss&Hug hud.
 
 
 ### Idea what not works  
-``javascript
+```javascript
 
     touch_start(integer num_detected){
         // lets suppose that know UUID of target and keeping it in global targetKey
