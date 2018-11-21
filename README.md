@@ -12,13 +12,13 @@ Kiss&Hug hud.
 - **target** - avatar who wish animate with me
   
 1. **start**
-  - get target(avatar) name
-  - start listen for owner on channel 1 for 
-  - event: _LISTEN_
-    - received target name
-    - get targetKey (UUID)
-    - get targetPos 
-    - compute distance from target - llVecDist( llGetPos(), targetPos );
+   - get target(avatar) name
+   - start listen for owner on channel 1 for 
+   - event: _LISTEN_
+     - received target name
+     - get targetKey (UUID)
+     - get targetPos 
+     - compute distance from target - llVecDist( llGetPos(), targetPos );
 2. **walk toward target**
    1. set target  -  [llTarget](http://wiki.secondlife.com/wiki/LlTarget)(  targetPos, targetDistance );
    2. turn to target - [llRotLookAt](http://wiki.secondlife.com/wiki/LlRotLookAt)( targetPos, 1.0, 	0.4 );
