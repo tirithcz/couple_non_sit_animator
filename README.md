@@ -9,8 +9,8 @@ Kiss&Hug hud.
 ### How it should works
 
   1. winer - person who wear hud/object
-  1. target - avatar who wish animate with me
-  * **get target(avatar) name** 
+  - target - avatar who wish animate with me
+  - **get target(avatar) name** 
    - start listen for owner on channel 1 for 
    - event: _LISTEN_
       1.  received target name
@@ -19,11 +19,11 @@ Kiss&Hug hud.
       - compute distance from target - llVelMag
   1. **walk toward target**
     1.  **set target**  -  ` llTarget(  targetPos, targetDistance );`
-    - turn to target
-    - **walk to target** -  `llMoveToTarget( targetPos , 0.4 );`
-    - **when** ( distance target_owner < 10)  -->  **stop walk**  - `llStopMoveToTarget();`
+    - turn to target - [llRotLookAt( targetPos, 1.0, 	0.4 );](http://wiki.secondlife.com/wiki/LlRotLookAt)
+    - **walk to target** - [llMoveToTarget](http://wiki.secondlife.com/wiki/LlMoveToTarget)( targetPos , 0.4 );
+    - **when** ( distance target_owner < 10)  -->  **stop walk**  - [llStopMoveToTarget();](http://wiki.secondlife.com/wiki/LlStopMoveToTarget)
   1. **do_fight**
-    1.    start animation of owner
+    1. start animation of owner
     - start animation of target
     - play sound 
     - dust particles 
@@ -49,12 +49,12 @@ Kiss&Hug hud.
 
 **understand to:**
 
-  - request permissions first 
-    -  ` llRequestPermissions( targetKey , PERMISSION_TRIGGER_ANIMATION);`
-    -  ` llRequestPermissions( ownerKey , PERMISSION_TRIGGER_ANIMATION);`
-  - in event:  `run_time_permissions`
+  - request permissions first
+    -  [llRequestPermissions](http://wiki.secondlife.com/wiki/LlGetPermissionsKey)( targetKey , `PERMISSION_TRIGGER_ANIMATION`);
+    -  [llRequestPermissions](http://wiki.secondlife.com/wiki/LlRequestPermissions)( ownerKey , `PERMISSION_TRIGGER_ANIMATION`);
+  - **in event** -  [`run_time_permissions`](http://wiki.secondlife.com/wiki/Run_time_permissions)
     - must check - `if(perm & PERMISSION_TRIGGER_ANIMATION)`
-    - in event am able get information - UUID (key) of who granted/deny permission request
+    - function [LlGetPermissionsKey](http://wiki.secondlife.com/wiki/LlGetPermissionsKey) will tell me who permited animating and for who will start [llStartAnimation](http://wiki.secondlife.com/wiki/LlStartAnimation)("animation_name");
 
 
 ### Idea what not works  
